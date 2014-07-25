@@ -1,6 +1,45 @@
 ;(function() {
 
-  var StickyElement;
+  // helpers
+  var __bind = function(fn, me) { return function() { return fn.apply(me, arguments); } };
+
+  // classes
+  var StickyElement,
+      StickyController;
+
+  StickyController = (function() {
+    function StickyController(stickyElements) {
+      this.update = __bind(this.update, this);
+
+      // an array of all the sticky elements
+      this.stickyElements = stickyElements;
+
+      this.init();
+      return this;
+    }
+
+    StickyController.prototype.init = function() {
+      this.events();
+    };
+
+    StickyController.prototype.events = function() {
+      window.addEventListener('scroll', this.update);
+    };
+
+    StickyController.prototype.update = function(e) {
+      var scrollTop = this.getScrollTop();
+
+
+    };
+
+    StickyController.prototype.getScrollTop = function() {
+      return document.body.scrollTop;
+    };
+
+    return StickyController;
+  })();
+
+
 
   StickyElement = (function() {
     function StickyElement(element) {
@@ -10,6 +49,7 @@
       this.dummyElement = null;
       // how far the element is down the view
       this.position = null;
+
       this.init();
       return this;
     }
@@ -40,15 +80,19 @@
     };
 
     StickyElement.prototype.getOffset = function() {
+      // return the original elements offset from the top of the page
       return this.position = this.element.offsetTop;
     };
 
     return StickyElement;
   })();
 
+
+
   // testing code
   var el = document.getElementById('first');
   var s = new StickyElement(el);
-  console.log(s);
+
+  var sc = new StickyController([s]);
 
 })();

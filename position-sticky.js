@@ -87,8 +87,7 @@
       this.createDummyElement()
       this.insertDummyElement();
       this.getOffset();
-
-      this.limit = (this.element.parentNode.offsetTop + this.element.parentNode.offsetHeight) - this.element.offsetHeight;
+      this.getLimit();
     };
 
     StickyElement.prototype.createDummyElement = function() {
@@ -116,6 +115,11 @@
     StickyElement.prototype.getOffset = function() {
       // return the original elements offset from the top of the page
       return this.position = this.element.offsetTop;
+    };
+
+    StickyElement.prototype.getLimit = function() {
+      // returns the limit for which the element should stop sticking
+      return this.limit = (this.element.parentNode.offsetTop + this.element.parentNode.offsetHeight) - this.element.offsetHeight;
     };
 
     StickyElement.prototype.setZindex = function(index) {

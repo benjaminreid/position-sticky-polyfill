@@ -131,7 +131,9 @@
   // testing code
   var s1 = new StickyElement(document.getElementById('first'));
   var s2 = new StickyElement(document.getElementById('second'));
+  var s3 = new StickyElement(document.getElementById('three'));
+  var s4 = new StickyElement(document.getElementById('four'));
 
-  var sc = new StickyController([s1, s2]);
+  var sc = new StickyController([s1, s2, s3, s4]);
 
 })();

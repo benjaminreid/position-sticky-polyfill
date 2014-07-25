@@ -16,6 +16,7 @@ body {
 .header {
   padding: 30px;
   background: #E1D8D8;
+  box-shadow: inset 0 0 1px black;
 }
 
 .header h1 {

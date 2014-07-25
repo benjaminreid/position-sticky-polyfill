@@ -41,9 +41,13 @@
         var stickyElement = this.stickyElements[i];
 
         // when the sticky element reaches the top
-        if (scrollTop >= stickyElement.position) {
+        if ( (stickyElement.stuck === false) && (scrollTop >= stickyElement.position) ) {
           stickyElement.stick();
-        } else if ( (stickyElement.stuck === true) && (scrollTop <= stickyElement.position ) ) {
+        } else if ( (stickyElement.stuck === true && stickyElement.frozen !== true) && (scrollTop >= stickyElement.limit ) ) {
+          stickyElement.freeze();
+        } else if ( (stickyElement.frozen === true) && (scrollTop <= stickyElement.limit ) ) {
+          stickyElement.stick();
+        } else if ( (stickyElement.stuck === true) && (scrollTop <= stickyElement.position) ) {
           stickyElement.unstick();
         }
       }
@@ -66,8 +70,12 @@
       this.dummyElement = null;
       // how far the element is down the view
       this.position = null;
+      // where the sticking should stop
+      this.limit = null;
       // sticky state
       this.stuck = false;
+      // frozen state
+      this.frozen = false;
 
       this.zIndex = 0;
 
@@ -79,6 +87,8 @@
       this.createDummyElement()
       this.insertDummyElement();
       this.getOffset();
+
+      this.limit = (this.element.parentNode.offsetTop + this.element.parentNode.offsetHeight) - this.element.offsetHeight;
     };
 
     StickyElement.prototype.createDummyElement = function() {
@@ -123,6 +133,7 @@
 
     StickyElement.prototype.stick = function() {
       this.stuck = true;
+      this.frozen = false;
 
       this.showDummyElement();
 
@@ -133,9 +144,16 @@
 
     StickyElement.prototype.unstick = function() {
       this.stuck = false;
+      this.frozen = false;
 
       this.hideDummyElement();
       this.element.style.position = "relative";
+    };
+
+    StickyElement.prototype.freeze = function() {
+      this.frozen = true;
+      this.element.style.position = "absolute";
+      this.element.style.top = this.limit + "px";
     };
 
     return StickyElement;

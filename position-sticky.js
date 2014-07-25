@@ -26,7 +26,14 @@
     StickyController.prototype.setup = function() {
       for(var i = 0; i < this.stickyElements.length; i++) {
         var stickyElement = this.stickyElements[i];
+        var nextStickyElement = this.stickyElements[i+1];
         stickyElement.setZindex(i);
+
+        if (nextStickyElement) {
+          if ( (stickyElement.position + stickyElement.element.offsetHeight) >= nextStickyElement.position ) {
+            stickyElement.disable();
+          }
+        }
       }
     };
 
@@ -78,6 +85,8 @@
       this.frozen = false;
 
       this.zIndex = 0;
+
+      this.enabled = true;
 
       this.init();
       return this;
@@ -136,6 +145,8 @@
     };
 
     StickyElement.prototype.stick = function() {
+      if (this.enabled === false) { return false; }
+
       this.stuck = true;
       this.frozen = false;
 
@@ -147,6 +158,8 @@
     };
 
     StickyElement.prototype.unstick = function() {
+      if (this.enabled === false) { return false; }
+
       this.stuck = false;
       this.frozen = false;
 
@@ -155,9 +168,16 @@
     };
 
     StickyElement.prototype.freeze = function() {
+      if (this.enabled === false) { return false; }
+
       this.frozen = true;
       this.element.style.position = "absolute";
       this.element.style.top = this.limit + "px";
+    };
+
+    StickyElement.prototype.disable = function() {
+      this.unstick();
+      this.enabled = false;
     };
 
     return StickyElement;

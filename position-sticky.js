@@ -29,7 +29,14 @@
     StickyController.prototype.update = function(e) {
       var scrollTop = this.getScrollTop();
 
+      for(var i = 0; i < this.stickyElements.length; i++) {
+        var stickyElement = this.stickyElements[i];
 
+        // when the sticky element reaches the top
+        if (scrollTop >= stickyElement.position) {
+          stickyElement.stick();
+        }
+      }
     };
 
     StickyController.prototype.getScrollTop = function() {
@@ -71,6 +78,9 @@
       // hide the element initially
       dummyElement.style.display = "none";
 
+      // @DEV
+      dummyElement.style.background = "red";
+
       return this.dummyElement = dummyElement;
     };
 
@@ -82,6 +92,22 @@
     StickyElement.prototype.getOffset = function() {
       // return the original elements offset from the top of the page
       return this.position = this.element.offsetTop;
+    };
+
+    StickyElement.prototype.hideDummyElement = function() {
+      return this.dummyElement.style.display = "none";
+    };
+
+    StickyElement.prototype.showDummyElement = function() {
+      return this.dummyElement.style.display = "block";
+    };
+
+    StickyElement.prototype.stick = function() {
+      this.showDummyElement();
+
+      this.element.style.position = "fixed";
+      this.element.style.top = "0";
+      this.element.style.width = this.dummyElement.offsetWidth + "px";
     };
 
     return StickyElement;

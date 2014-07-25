@@ -19,7 +19,15 @@
     }
 
     StickyController.prototype.init = function() {
+      this.setup();
       this.events();
+    };
+
+    StickyController.prototype.setup = function() {
+      for(var i = 0; i < this.stickyElements.length; i++) {
+        var stickyElement = this.stickyElements[i];
+        stickyElement.setZindex(i);
+      }
     };
 
     StickyController.prototype.events = function() {
@@ -61,6 +69,8 @@
       // sticky state
       this.stuck = false;
 
+      this.zIndex = 0;
+
       this.init();
       return this;
     }
@@ -98,6 +108,11 @@
       return this.position = this.element.offsetTop;
     };
 
+    StickyElement.prototype.setZindex = function(index) {
+      this.element.style.position = "relative";
+      return this.element.style.zIndex = index;
+    };
+
     StickyElement.prototype.hideDummyElement = function() {
       return this.dummyElement.style.display = "none";
     };
@@ -120,7 +135,7 @@
       this.stuck = false;
 
       this.hideDummyElement();
-      this.element.style.position = "static";
+      this.element.style.position = "relative";
     };
 
     return StickyElement;

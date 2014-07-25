@@ -35,6 +35,8 @@
         // when the sticky element reaches the top
         if (scrollTop >= stickyElement.position) {
           stickyElement.stick();
+        } else if ( (stickyElement.stuck === true) && (scrollTop <= stickyElement.position ) ) {
+          stickyElement.unstick();
         }
       }
     };
@@ -56,6 +58,8 @@
       this.dummyElement = null;
       // how far the element is down the view
       this.position = null;
+      // sticky state
+      this.stuck = false;
 
       this.init();
       return this;
@@ -103,11 +107,20 @@
     };
 
     StickyElement.prototype.stick = function() {
+      this.stuck = true;
+
       this.showDummyElement();
 
       this.element.style.position = "fixed";
       this.element.style.top = "0";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
+    };
+
+    StickyElement.prototype.unstick = function() {
+      this.stuck = false;
+
+      this.hideDummyElement();
+      this.element.style.position = "static";
     };
 
     return StickyElement;

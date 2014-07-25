@@ -171,7 +171,8 @@
   var s3 = new StickyElement(document.getElementById('three'));
   var s4 = new StickyElement(document.getElementById('four'));
   var s5 = new StickyElement(document.getElementById('five'));
+  var s6 = new StickyElement(document.getElementById('six'));
 
-  var sc = new StickyController([s1, s2, s3, s4, s5]);
+  var sc = new StickyController([s1, s2, s3, s4, s5, s6]);
 
 })();

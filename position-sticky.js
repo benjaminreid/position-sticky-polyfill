@@ -129,9 +129,9 @@
 
 
   // testing code
-  var el = document.getElementById('first');
-  var s = new StickyElement(el);
+  var s1 = new StickyElement(document.getElementById('first'));
+  var s2 = new StickyElement(document.getElementById('second'));
 
-  var sc = new StickyController([s]);
+  var sc = new StickyController([s1, s2]);
 
 })();

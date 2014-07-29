@@ -1,0 +1,23 @@
+{
+  "name": "position-sticky-polyfill",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nouveller/position-sticky-polyfill",
+  "authors": [
+    "Benjamin Reid <benjamin@nouveller.com>"
+  ],
+  "description": "A polyfill for position: sticky",
+  "main": "dist/position-sticky.js",
+  "keywords": [
+    "sticky",
+    "position",
+    "polyfill"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

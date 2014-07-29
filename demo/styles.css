@@ -22,6 +22,10 @@ body {
   padding: 0;
 }
 
+.container--red {
+  background: red;
+}
+
 .header {
   padding: 30px;
   background: #87F3FD;

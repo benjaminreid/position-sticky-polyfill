@@ -12,7 +12,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
       </p>
 
-      <div class="container">
+      <div class="container" id="content-1">
 
         <p>This should sticking at the bottom of the container; side note, this container <strong>has</strong> padding</p>
 
@@ -23,6 +23,20 @@
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
         </p>
+
+        <a href="#" id="change">Change container length</a>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
+        </p>
+
+      </div>
+
+      <div class="container container--red">
+
+        <div class="header" id="sticky-1a">
+          <h1>Sticky bar 1a</h1>
+        </div>
 
       </div>
 
@@ -109,6 +123,7 @@
       (function() {
         var elements = [
           document.getElementById('sticky-1'),
+          document.getElementById('sticky-1a'),
           document.getElementById('sticky-2'),
           document.getElementById('sticky-3'),
           document.getElementById('sticky-4'),
@@ -117,6 +132,11 @@
         ];
 
         PositionSticky(elements);
+
+        document.getElementById('change').addEventListener('click', function(e) {
+          e.preventDefault();
+          document.getElementById('content-1').style.height = "1000px";
+        });
       })();
     </script>
 

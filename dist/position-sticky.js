@@ -31,12 +31,6 @@
         var stickyElement = this.stickyElements[i];
         var nextStickyElement = this.stickyElements[i+1];
         stickyElement.setZindex(i);
-
-        if (nextStickyElement) {
-          if ( (stickyElement.position + stickyElement.element.offsetHeight) >= nextStickyElement.position ) {
-            stickyElement.disable();
-          }
-        }
       }
     };
 
@@ -48,9 +42,18 @@
     StickyController.prototype.update = function(e) {
       var scrollTop = this.getScrollTop();
 
+
       for(var i = 0; i < this.stickyElements.length; i++) {
         var stickyElement = this.stickyElements[i];
+        var nextStickyElement = this.stickyElements[i+1];
         stickyElement.update();
+
+
+        if (nextStickyElement) {
+          if ( (stickyElement.position + stickyElement.height) === nextStickyElement.position ) {
+            continue;
+          }
+        }
 
         // when the sticky element reaches the top
         if ( ((stickyElement.stuck === false) && (scrollTop >= stickyElement.position)) && (scrollTop <= stickyElement.limit) ) {
@@ -92,8 +95,6 @@
       this.frozen = false;
 
       this.zIndex = 0;
-
-      this.enabled = true;
 
       this.init();
       return this;
@@ -170,8 +171,6 @@
     };
 
     StickyElement.prototype.stick = function() {
-      if (this.enabled === false) { return false; }
-
       this.stuck = true;
       this.frozen = false;
 
@@ -183,8 +182,6 @@
     };
 
     StickyElement.prototype.unstick = function() {
-      if (this.enabled === false) { return false; }
-
       this.stuck = false;
       this.frozen = false;
 
@@ -194,19 +191,12 @@
     };
 
     StickyElement.prototype.freeze = function() {
-      if (this.enabled === false) { return false; }
-
       this.showDummyElement();
 
       this.frozen = true;
       this.element.style.position = "absolute";
       this.element.style.top = this.limit + "px";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
-    };
-
-    StickyElement.prototype.disable = function() {
-      this.unstick();
-      this.enabled = false;
     };
 
     return StickyElement;

@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>position: sticky</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Inconsolata:400,700">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
 
     <div class="wrapper">
 
+      <h1>position: sticky demo</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh.
       </p>
 
       <div class="container" id="content-1">
 
-        <p>This should sticking at the bottom of the container; side note, this container <strong>has</strong> padding</p>
+        <p class="important">
+          This first sticky bar is inside a container, and should stick once
+          it's top hits the top of the browser and continue to stick until it's
+          bottom hits the bottom of the container.
+        </p>
 
         <div class="header" id="sticky-1">
           <h1>Sticky bar 1</h1>
         </div>
 
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero.
+        </p>
+
+        <p class="important">
+          An issue while developing this was the content changing around the
+          sticky bars. So if you click the link below to change the height
+          of this container, everything should remain happy.
         </p>
 
         <a href="#" id="change">Change container length</a>
@@ -32,16 +45,14 @@
 
       </div>
 
-      <div class="container container--red">
-
+      <div class="container container--blue">
         <div class="header" id="sticky-1a">
           <h1>Sticky bar 1a</h1>
         </div>
-
       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
+      <p class="important">
+        Sticky bar 1a technically shouldn't move...
       </p>
 
       <p>
@@ -50,7 +61,10 @@
 
       <div class="container-no-padding">
 
-        <p>This should sticking at the bottom of the container; side note, this container <strong>does not</strong> have padding</p>
+        <p class="important">
+          This container has no padding, so the bar should sit flush with the
+          bottom
+        </p>
 
         <div class="header" id="sticky-2">
           <h1>Sticky bar 2</h1>
@@ -66,11 +80,11 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
       </p>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
+      <p class="important">
+        Here we have two next to each with really shouldn't require being stuck
+        as there is no content below them. So, they stay where they are while
+        sticky bar 5 will stick.
       </p>
-
-      <h2>Two next to each other</h2>
 
       <div class="header" id="sticky-3">
         <h1>Sticky bar 3</h1>
@@ -92,8 +106,9 @@
         <h1>Sticky bar 6</h1>
       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
+      <p class="important">
+        Sticky bar 5 goes under sticky bar 6 but they do overlap, this is an
+        of how things can go awry.
       </p>
 
       <p>

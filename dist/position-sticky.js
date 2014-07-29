@@ -49,6 +49,7 @@
 
       for(var i = 0; i < this.stickyElements.length; i++) {
         var stickyElement = this.stickyElements[i];
+        stickyElement.update();
 
         // when the sticky element reaches the top
         if ( (stickyElement.stuck === false) && (scrollTop >= stickyElement.position) ) {
@@ -102,6 +103,15 @@
       this.getLimit();
     };
 
+    StickyElement.prototype.update = function() {
+      this.getLimit();
+
+      // update the frozen position
+      if (this.frozen === true) {
+        this.freeze();
+      }
+    };
+
     StickyElement.prototype.createDummyElement = function() {
       var dummyElement;
       // create a new element
@@ -133,6 +143,7 @@
 
     StickyElement.prototype.setZindex = function(index) {
       this.element.style.position = "relative";
+      this.zIndex = index;
       return this.element.style.zIndex = index;
     };
 

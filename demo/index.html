@@ -16,7 +16,7 @@
 
         <p>This should sticking at the bottom of the container; side note, this container <strong>has</strong> padding</p>
 
-        <div class="header" id="first">
+        <div class="header" id="sticky-1">
           <h1>Sticky bar 1</h1>
         </div>
 
@@ -38,7 +38,7 @@
 
         <p>This should sticking at the bottom of the container; side note, this container <strong>does not</strong> have padding</p>
 
-        <div class="header" id="second">
+        <div class="header" id="sticky-2">
           <h1>Sticky bar 2</h1>
         </div>
 
@@ -58,15 +58,15 @@
 
       <h2>Two next to each other</h2>
 
-      <div class="header" id="three">
+      <div class="header" id="sticky-3">
         <h1>Sticky bar 3</h1>
       </div>
 
-      <div class="header" id="four">
+      <div class="header" id="sticky-4">
         <h1>Sticky bar 4</h1>
       </div>
 
-      <div class="header" id="five">
+      <div class="header" id="sticky-5">
         <h1>Sticky bar 5</h1>
       </div>
 
@@ -74,7 +74,7 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim neque metus, quis varius risus pulvinar sed. Suspendisse eget enim laoreet, accumsan lorem vel, aliquet ipsum. Suspendisse potenti. Praesent hendrerit tellus nulla, a euismod augue lobortis vel. Nulla sagittis, mi non dignissim tempus, magna nulla porta purus, id euismod lacus libero at nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt tellus tristique, vestibulum urna quis, pulvinar libero. Etiam quis lobortis magna. Nullam cursus, quam et vestibulum faucibus, eros metus laoreet quam, et facilisis lorem arcu vel leo. Donec ornare nisl vehicula consequat vestibulum. Nulla facilisi. Ut consectetur id augue at hendrerit.
       </p>
 
-      <div class="header" id="six">
+      <div class="header" id="sticky-6">
         <h1>Sticky bar 6</h1>
       </div>
 
@@ -105,6 +105,20 @@
     </div>
 
     <script src="../dist/position-sticky.js"></script>
+    <script>
+      (function() {
+        var elements = [
+          document.getElementById('sticky-1'),
+          document.getElementById('sticky-2'),
+          document.getElementById('sticky-3'),
+          document.getElementById('sticky-4'),
+          document.getElementById('sticky-5'),
+          document.getElementById('sticky-6')
+        ];
+
+        PositionSticky(elements);
+      })();
+    </script>
 
   </body>
 </html>

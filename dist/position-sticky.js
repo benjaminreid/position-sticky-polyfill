@@ -7,6 +7,9 @@
   var StickyElement,
       StickyController;
 
+  // the function to expose to the window for people to call
+  var PositionSticky;
+
   StickyController = (function() {
     function StickyController(stickyElements) {
       this.update = __bind(this.update, this);
@@ -110,9 +113,6 @@
       // hide the element initially
       dummyElement.style.display = "none";
 
-      // @DEV
-      dummyElement.style.background = "red";
-
       return this.dummyElement = dummyElement;
     };
 
@@ -184,15 +184,19 @@
   })();
 
 
+  // exposed function to call the code
+  PositionSticky = function(elements) {
+    var stickyElements = [];
 
-  // testing code
-  var s1 = new StickyElement(document.getElementById('first'));
-  var s2 = new StickyElement(document.getElementById('second'));
-  var s3 = new StickyElement(document.getElementById('three'));
-  var s4 = new StickyElement(document.getElementById('four'));
-  var s5 = new StickyElement(document.getElementById('five'));
-  var s6 = new StickyElement(document.getElementById('six'));
+    for(var i = 0; i < elements.length; i++) {
+      var element = elements[i];
+      var stickyElement = new StickyElement(element);
+      stickyElements.push(stickyElement);
+    }
 
-  var sc = new StickyController([s1, s2, s3, s4, s5, s6]);
+    new StickyController(stickyElements);
+  };
+
+  window.PositionSticky = PositionSticky;
 
 })();

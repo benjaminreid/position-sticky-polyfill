@@ -104,9 +104,16 @@
     };
 
     StickyElement.prototype.update = function() {
+      // if the element isn't stuck (fixed at the top of the screen)
+      // keep track of the offset incase page layout changes
+      if (!this.stuck) {
+        this.getOffset();
+      }
+
+      // the limit should be safe to get as reflow shouldn't affect this *crosses fingers*
       this.getLimit();
 
-      // update the frozen position
+      // update the frozen position if frozen incase layout changes
       if (this.frozen === true) {
         this.freeze();
       }

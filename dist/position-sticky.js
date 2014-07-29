@@ -52,9 +52,9 @@
         stickyElement.update();
 
         // when the sticky element reaches the top
-        if ( (stickyElement.stuck === false) && (scrollTop >= stickyElement.position) ) {
+        if ( ((stickyElement.stuck === false) && (scrollTop >= stickyElement.position)) && (scrollTop <= stickyElement.limit) ) {
           stickyElement.stick();
-        } else if ( (stickyElement.stuck === true && stickyElement.frozen !== true) && (scrollTop >= stickyElement.limit ) ) {
+        } else if ( (stickyElement.frozen !== true) && (scrollTop >= stickyElement.limit ) ) {
           stickyElement.freeze();
         } else if ( (stickyElement.frozen === true) && (scrollTop <= stickyElement.limit ) ) {
           stickyElement.stick();
@@ -117,11 +117,10 @@
       // create a new element
       dummyElement = document.createElement('div');
 
-      // set the width the height off the original element
-      dummyElement.style.height = this.element.offsetHeight + "px";
+      this.height = this.element.offsetHeight;
 
-      // hide the element initially
-      dummyElement.style.display = "none";
+      // set the width the height off the original element
+      dummyElement.style.height = "0px";
 
       return this.dummyElement = dummyElement;
     };
@@ -148,11 +147,11 @@
     };
 
     StickyElement.prototype.hideDummyElement = function() {
-      return this.dummyElement.style.display = "none";
+      return this.dummyElement.style.height = "0px";
     };
 
     StickyElement.prototype.showDummyElement = function() {
-      return this.dummyElement.style.display = "block";
+      return this.dummyElement.style.height = this.height + "px";
     };
 
     StickyElement.prototype.stick = function() {
@@ -181,9 +180,12 @@
     StickyElement.prototype.freeze = function() {
       if (this.enabled === false) { return false; }
 
+      this.showDummyElement();
+
       this.frozen = true;
       this.element.style.position = "absolute";
       this.element.style.top = this.limit + "px";
+      this.element.style.width = this.dummyElement.offsetWidth + "px";
     };
 
     StickyElement.prototype.disable = function() {

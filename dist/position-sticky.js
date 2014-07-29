@@ -42,6 +42,7 @@
 
     StickyController.prototype.events = function() {
       window.addEventListener('scroll', this.update);
+      window.addEventListener('resize', this.update);
     };
 
     StickyController.prototype.update = function(e) {
@@ -106,6 +107,11 @@
     };
 
     StickyElement.prototype.update = function() {
+      // make the fixed bar responsive to the dummy element
+      if (this.stuck) {
+        this.element.style.width = this.dummyElement.offsetWidth + "px";
+      }
+
       // if the element isn't stuck (fixed at the top of the screen)
       // keep track of the offset incase page layout changes
       if (!this.stuck) {
@@ -184,6 +190,7 @@
 
       this.hideDummyElement();
       this.element.style.position = "relative";
+      this.element.style.width = "auto";
     };
 
     StickyElement.prototype.freeze = function() {

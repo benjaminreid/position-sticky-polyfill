@@ -65,7 +65,9 @@
     };
 
     StickyController.prototype.getScrollTop = function() {
-      return document.body.scrollTop;
+      // hat tip to make getting the scrolled position more x-browser
+      // https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY
+      return (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
     };
 
     return StickyController;

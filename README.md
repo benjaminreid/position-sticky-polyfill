@@ -20,7 +20,7 @@ Then simply include `dist/position-sticky.js` into your page and you're golden. 
 
 Of course if you're not using Bower you can simply use the download or clone references just to your right and extract the same file mentioned above.
 
-### Usage
+## Usage
 
 After you've included the polyfill the function `PositionSticky` will become globally available to you.
 
@@ -39,6 +39,21 @@ PositionSticky([
 
 ```
 
-### Caveats
+## Development
+
+If you plan on helping out with the development, here's how to get started.
+
+First make sure you have `node` and `npm` intalled along with the build tool
+[Gulp](http://gulpjs.com). Now you can installed the required packages to build!
+
+```
+# installs reqiored node packages
+npm install
+
+# this will compress dist/position-sticky.js to dist/position-sticky.min.js
+gulp
+```
+
+## Caveats
 
 - This works a lot better if you have `box-sizing: border-box;` set on everything.

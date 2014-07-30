@@ -1,0 +1,28 @@
+{
+  "name": "position-sticky-polyfill",
+  "version": "0.0.4",
+  "description": "A polyfill for position: sticky",
+  "main": "dist/position-sticky.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nouveller/position-sticky-polyfill.git"
+  },
+  "keywords": [
+    "sticky",
+    "position",
+    "polyfill"
+  ],
+  "author": "Benjamin Reid <benjamin@nouveller.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nouveller/position-sticky-polyfill/issues"
+  },
+  "homepage": "https://github.com/nouveller/position-sticky-polyfill",
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.8.6"
+  }
+}

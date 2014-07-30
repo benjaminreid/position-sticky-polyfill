@@ -1,6 +1,6 @@
 {
   "name": "position-sticky-polyfill",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A polyfill for position: sticky",
   "main": "dist/position-sticky.js",
   "scripts": {

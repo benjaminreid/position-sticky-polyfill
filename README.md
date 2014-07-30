@@ -3,6 +3,8 @@
 A polyfill for `position: sticky`, matching exactly how Chrome have it currently
 implemented (as of 36.0.1985.125).
 
+*jQuery is not required but there is a jQuery plugin included for ease.*
+
 ![](http://i.imgur.com/eLw67J9.gif)
 
 ## Installation
@@ -43,6 +45,8 @@ PositionSticky([
   document.getElementById('element-3')
 ]);
 
+// or use jQuery
+$('.element').positionSticky();
 ```
 
 ## Development

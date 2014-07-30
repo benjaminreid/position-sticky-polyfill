@@ -218,4 +218,26 @@
 
   window.PositionSticky = PositionSticky;
 
+
+  // register as a jquery plugin
+  if (typeof jQuery !== 'undefined') {
+    (function($) {
+
+      $.fn.positionSticky = function() {
+        if (this.length === 0) return;
+
+        var elements = [];
+
+        this.each(function(i, el) {
+          elements.push(el);
+        });
+
+        PositionSticky(elements);
+
+        return this;
+      };
+
+    })(jQuery);
+  }
+
 })();

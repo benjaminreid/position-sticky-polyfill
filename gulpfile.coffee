@@ -7,3 +7,5 @@ gulp.task 'compress', ->
     .pipe uglify()
     .pipe rename('position-sticky.min.js')
     .pipe gulp.dest 'dist'
+
+gulp.task 'default', ['compress']

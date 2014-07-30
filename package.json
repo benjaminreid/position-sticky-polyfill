@@ -23,6 +23,8 @@
   "homepage": "https://github.com/nouveller/position-sticky-polyfill",
   "devDependencies": {
     "coffee-script": "^1.7.1",
-    "gulp": "^3.8.6"
+    "gulp": "^3.8.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.1"
   }
 }

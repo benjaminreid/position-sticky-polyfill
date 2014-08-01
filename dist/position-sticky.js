@@ -179,6 +179,7 @@
       this.element.style.position = "fixed";
       this.element.style.top = "0";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
+      this.element.classList.add('position-sticky');
     };
 
     StickyElement.prototype.unstick = function() {
@@ -188,6 +189,7 @@
       this.hideDummyElement();
       this.element.style.position = "relative";
       this.element.style.width = "auto";
+      this.element.classList.remove('position-sticky');
     };
 
     StickyElement.prototype.freeze = function() {

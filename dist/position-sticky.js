@@ -1,7 +1,31 @@
 ;(function() {
 
   // helpers
-  var __bind = function(fn, me) { return function() { return fn.apply(me, arguments); } };
+  var __bind = function(fn, me) { return function() { return fn.apply(me, arguments); } },
+      addEventListener = function(el, eventName, eventHandler) {
+        if (el.addEventListener) {
+          el.addEventListener(eventName, eventHandler);
+        } else {
+          el.attachEvent('on' + eventName, function() {
+            eventHandler.call(el);
+          });
+        }
+      },
+      addClass = function(el, cssClass) {
+        if (el.classList) {
+          el.classList.add(cssClass);
+        } else {
+          el.className += ' ' + cssClass;
+        }
+      },
+      removeClass = function(el, cssClass) {
+        if (el.classList) {
+          el.classList.remove(cssClass);
+        } else {
+          el.className = el.className.replace(new RegExp('(^|\\b)' + cssClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+        }
+      }
+  ;
 
   // classes
   var StickyElement,
@@ -35,8 +59,8 @@
     };
 
     StickyController.prototype.events = function() {
-      window.addEventListener('scroll', this.update);
-      window.addEventListener('resize', this.update);
+      addEventListener(window, 'scroll', this.update);
+      addEventListener(window, 'resize', this.update);
     };
 
     StickyController.prototype.update = function(e) {
@@ -179,7 +203,7 @@
       this.element.style.position = "fixed";
       this.element.style.top = "0";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
-      this.element.classList.add('position-sticky');
+      addClass(this.element, 'position-sticky');
     };
 
     StickyElement.prototype.unstick = function() {
@@ -189,7 +213,7 @@
       this.hideDummyElement();
       this.element.style.position = "relative";
       this.element.style.width = "auto";
-      this.element.classList.remove('position-sticky');
+      removeClass(this.element, 'this.element');
     };
 
     StickyElement.prototype.freeze = function() {

@@ -136,6 +136,16 @@
     <script src="../dist/position-sticky.js"></script>
     <script>
       (function() {
+        var addEventListener = function(el, eventName, eventHandler) {
+          if (el.addEventListener) {
+            el.addEventListener(eventName, eventHandler);
+          } else {
+            el.attachEvent('on' + eventName, function() {
+              eventHandler.call(el);
+            });
+          }
+        };
+
         var elements = [
           document.getElementById('sticky-1'),
           document.getElementById('sticky-1a'),
@@ -148,10 +158,11 @@
 
         PositionSticky(elements);
 
-        document.getElementById('change').addEventListener('click', function(e) {
+        addEventListener(document.getElementById('change'), 'click', function(e) {
           e.preventDefault();
           document.getElementById('content-1').style.height = "1000px";
         });
+
       })();
     </script>
 

@@ -29,7 +29,10 @@
 
   // classes
   var StickyElement,
-      StickyController;
+      StickyController,
+      stickyClassName;
+
+  stickyClassName = 'position-sticky';
 
   // the function to expose to the window for people to call
   var PositionSticky;
@@ -203,7 +206,7 @@
       this.element.style.position = "fixed";
       this.element.style.top = "0";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
-      addClass(this.element, 'position-sticky');
+      addClass(this.element, stickyClassName);
     };
 
     StickyElement.prototype.unstick = function() {
@@ -213,7 +216,7 @@
       this.hideDummyElement();
       this.element.style.position = "relative";
       this.element.style.width = "auto";
-      removeClass(this.element, 'this.element');
+      removeClass(this.element, stickyClassName);
     };
 
     StickyElement.prototype.freeze = function() {

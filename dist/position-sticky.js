@@ -185,8 +185,8 @@
 
     StickyElement.prototype.setZindex = function(index) {
       this.element.style.position = "relative";
-      this.zIndex = index;
-      return this.element.style.zIndex = index;
+      this.zIndex = index + 9000;
+      return this.element.style.zIndex = this.zIndex;
     };
 
     StickyElement.prototype.hideDummyElement = function() {

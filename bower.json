@@ -1,6 +1,6 @@
 {
   "name": "position-sticky-polyfill",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "https://github.com/nouveller/position-sticky-polyfill",
   "authors": [
     "Benjamin Reid <benjamin@nouveller.com>"

@@ -215,7 +215,7 @@
 
       this.hideDummyElement();
       this.element.style.position = "relative";
-      this.element.style.width = "auto";
+      this.element.style.width = null;
       removeClass(this.element, stickyClassName);
     };
 

@@ -205,6 +205,7 @@
 
       this.element.style.position = "fixed";
       this.element.style.top = "0";
+      this.element.style.left = this.element.parentNode.getBoundingClientRect().left + "px";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
       addClass(this.element, stickyClassName);
     };
@@ -215,6 +216,8 @@
 
       this.hideDummyElement();
       this.element.style.position = "relative";
+      this.element.style.top = null;
+      this.element.style.left = null;
       this.element.style.width = null;
       removeClass(this.element, stickyClassName);
     };
@@ -225,6 +228,7 @@
       this.frozen = true;
       this.element.style.position = "absolute";
       this.element.style.top = this.limit + "px";
+      this.element.style.left = "0px";
       this.element.style.width = this.dummyElement.offsetWidth + "px";
     };
 

@@ -192,8 +192,7 @@
 
     StickyElement.prototype.setZindex = function(index) {
       this.element.style.position = "relative";
-      this.zIndex = index + 9000;
-      return this.element.style.zIndex = this.zIndex;
+      return this.zIndex = index + 9000;
     };
 
     StickyElement.prototype.hideDummyElement = function() {
@@ -214,6 +213,7 @@
       this.element.style.top = "0";
       this.element.style.left = getPos(this.element).x;
       this.element.style.width = this.dummyElement.offsetWidth + "px";
+      this.element.style.zIndex = this.zIndex;
       addClass(this.element, stickyClassName);
     };
 
@@ -226,6 +226,7 @@
       this.element.style.top = null;
       this.element.style.left = null;
       this.element.style.width = null;
+      this.element.style.zIndex = null;
       removeClass(this.element, stickyClassName);
     };
 
@@ -237,6 +238,7 @@
       this.element.style.top = this.limit + "px";
       this.element.style.left = getPos(this.element).x;
       this.element.style.width = this.dummyElement.offsetWidth + "px";
+      this.element.style.zIndex = null;
     };
 
     return StickyElement;

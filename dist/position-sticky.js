@@ -24,6 +24,13 @@
         } else {
           el.className = el.className.replace(new RegExp('(^|\\b)' + cssClass.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         }
+      },
+      getPos = function (el) {
+          // http://stackoverflow.com/questions/288699/get-the-position-of-a-div-span-tag
+          for (var lx=0, ly=0;
+               el != null;
+               lx += el.offsetLeft, ly += el.offsetTop, el = el.offsetParent);
+          return {x: lx,y: ly};
       }
   ;
 
@@ -205,7 +212,7 @@
 
       this.element.style.position = "fixed";
       this.element.style.top = "0";
-      this.element.style.left = this.element.parentNode.getBoundingClientRect().left + "px";
+      this.element.style.left = getPos(this.element).x;
       this.element.style.width = this.dummyElement.offsetWidth + "px";
       addClass(this.element, stickyClassName);
     };
@@ -228,7 +235,7 @@
       this.frozen = true;
       this.element.style.position = "absolute";
       this.element.style.top = this.limit + "px";
-      this.element.style.left = "0px";
+      this.element.style.left = getPos(this.element).x;
       this.element.style.width = this.dummyElement.offsetWidth + "px";
     };
 
